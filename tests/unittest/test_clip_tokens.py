@@ -3,7 +3,7 @@
 
 import pytest
 
-from pr_agent.algo.utils import clip_tokens
+from ai_pr_agent.algo.utils import clip_tokens
 
 
 class TestClipTokens:

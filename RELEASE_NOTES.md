@@ -1,10 +1,5 @@
 ## [Version 0.11] - 2023-12-07
-- codiumai/pr-agent:0.11
-- codiumai/pr-agent:0.11-github_app
-- codiumai/pr-agent:0.11-bitbucket-app
-- codiumai/pr-agent:0.11-gitlab_webhook
-- codiumai/pr-agent:0.11-github_polling
-- codiumai/pr-agent:0.11-github_action
+
 
 ### Added::Algo
 - New section in `/describe` tool - [PR changes walkthrough](https://github.com/Codium-ai/pr-agent/pull/509)

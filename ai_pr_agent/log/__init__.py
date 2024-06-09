@@ -6,7 +6,7 @@ from enum import Enum
 
 from loguru import logger
 
-from pr_agent.config_loader import get_settings
+from ai_pr_agent.config_loader import get_settings
 
 
 class LoggingFormat(str, Enum):

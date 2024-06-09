@@ -3,7 +3,7 @@ from mangum import Mangum
 from starlette.middleware import Middleware
 from starlette_context.middleware import RawContextMiddleware
 
-from pr_agent.servers.github_app import router
+from ai_pr_agent.servers.github_app import router
 
 
 middleware = [Middleware(RawContextMiddleware)]

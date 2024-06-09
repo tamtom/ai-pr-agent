@@ -1,7 +1,7 @@
 import fnmatch
 import re
 
-from pr_agent.config_loader import get_settings
+from ai_pr_agent.config_loader import get_settings
 
 
 def filter_ignored(files):

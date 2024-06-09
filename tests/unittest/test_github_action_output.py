@@ -1,6 +1,6 @@
 import os
 import json
-from pr_agent.algo.utils import get_settings, github_action_output
+from ai_pr_agent.algo.utils import get_settings, github_action_output
 
 class TestGitHubOutput:
     def test_github_action_output_enabled(self, monkeypatch, tmp_path):

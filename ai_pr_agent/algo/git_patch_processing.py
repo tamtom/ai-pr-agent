@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import re
 
-from pr_agent.config_loader import get_settings
-from pr_agent.algo.types import EDIT_TYPE, FilePatchInfo
-from pr_agent.log import get_logger
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.algo.types import EDIT_TYPE, FilePatchInfo
+from ai_pr_agent.log import get_logger
 
 
 def extend_patch(original_file_str, patch_str, num_lines) -> str:

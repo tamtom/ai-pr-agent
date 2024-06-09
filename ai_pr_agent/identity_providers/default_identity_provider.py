@@ -1,4 +1,4 @@
-from pr_agent.identity_providers.identity_provider import Eligibility, IdentityProvider
+from ai_pr_agent.identity_providers.identity_provider import Eligibility, IdentityProvider
 
 
 class DefaultIdentityProvider(IdentityProvider):

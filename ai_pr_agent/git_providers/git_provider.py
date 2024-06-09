@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 # enum EDIT_TYPE (ADDED, DELETED, MODIFIED, RENAMED)
 from typing import Optional
 
-from pr_agent.config_loader import get_settings
-from pr_agent.algo.types import FilePatchInfo
-from pr_agent.log import get_logger
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.algo.types import FilePatchInfo
+from ai_pr_agent.log import get_logger
 
 
 class GitProvider(ABC):
@@ -48,8 +48,8 @@ class GitProvider(ABC):
         pass
 
     def get_pr_description(self, *, full: bool = True) -> str:
-        from pr_agent.config_loader import get_settings
-        from pr_agent.algo.utils import clip_tokens
+        from ai_pr_agent.config_loader import get_settings
+        from ai_pr_agent.algo.utils import clip_tokens
         max_tokens_description = get_settings().get("CONFIG.MAX_DESCRIPTION_TOKENS", None)
         description = self.get_pr_description_full() if full else self.get_user_description()
         if max_tokens_description:

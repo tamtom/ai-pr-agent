@@ -1,5 +1,5 @@
-from pr_agent import cli
-from pr_agent.config_loader import get_settings
+from ai_pr_agent import cli
+from ai_pr_agent.config_loader import get_settings
 
 
 def main():

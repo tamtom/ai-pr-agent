@@ -5,12 +5,12 @@ from typing import List
 import openai
 from pydantic import BaseModel, Field
 
-from pr_agent.algo import MAX_TOKENS
-from pr_agent.algo.token_handler import TokenHandler
-from pr_agent.algo.utils import get_max_tokens
-from pr_agent.config_loader import get_settings
-from pr_agent.git_providers import get_git_provider
-from pr_agent.log import get_logger
+from ai_pr_agent.algo import MAX_TOKENS
+from ai_pr_agent.algo.token_handler import TokenHandler
+from ai_pr_agent.algo.utils import get_max_tokens
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.git_providers import get_git_provider
+from ai_pr_agent.log import get_logger
 
 MODEL = "text-embedding-ada-002"
 
@@ -30,7 +30,7 @@ class PRSimilarIssue:
         self.token_handler = TokenHandler()
         repo_obj = self.git_provider.repo_obj
         repo_name_for_index = self.repo_name_for_index = repo_obj.full_name.lower().replace('/', '-').replace('_/', '-')
-        index_name = self.index_name = "codium-ai-pr-agent-issues"
+        index_name = self.index_name = "tamtom-ai-pr-agent-issues"
 
         if get_settings().pr_similar_issue.vectordb == "pinecone":
             try:

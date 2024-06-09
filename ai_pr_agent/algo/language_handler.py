@@ -1,7 +1,7 @@
 # Language Selection, source: https://github.com/bigcode-project/bigcode-dataset/blob/main/language_selection/programming-languages-to-file-extensions.json  # noqa E501
 from typing import Dict
 
-from pr_agent.config_loader import get_settings
+from ai_pr_agent.config_loader import get_settings
 
 
 

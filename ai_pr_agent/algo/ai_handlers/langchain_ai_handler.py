@@ -4,9 +4,9 @@ try:
 except:  # we don't enforce langchain as a dependency, so if it's not installed, just move on
     pass
 
-from pr_agent.algo.ai_handlers.base_ai_handler import BaseAiHandler
-from pr_agent.config_loader import get_settings
-from pr_agent.log import get_logger
+from ai_pr_agent.algo.ai_handlers.base_ai_handler import BaseAiHandler
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.log import get_logger
 
 from openai import APIError, RateLimitError, Timeout
 from retry import retry

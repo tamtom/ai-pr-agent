@@ -1,9 +1,9 @@
 import ujson
 from google.cloud import storage
 
-from pr_agent.config_loader import get_settings
-from pr_agent.log import get_logger
-from pr_agent.secret_providers.secret_provider import SecretProvider
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.log import get_logger
+from ai_pr_agent.secret_providers.secret_provider import SecretProvider
 
 
 class GoogleCloudStorageSecretProvider(SecretProvider):

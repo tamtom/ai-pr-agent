@@ -1,25 +1,25 @@
 import shlex
 from functools import partial
 
-from pr_agent.algo.ai_handlers.base_ai_handler import BaseAiHandler
-from pr_agent.algo.ai_handlers.litellm_ai_handler import LiteLLMAIHandler
+from ai_pr_agent.algo.ai_handlers.base_ai_handler import BaseAiHandler
+from ai_pr_agent.algo.ai_handlers.litellm_ai_handler import LiteLLMAIHandler
 
-from pr_agent.algo.utils import update_settings_from_args
-from pr_agent.config_loader import get_settings
-from pr_agent.git_providers.utils import apply_repo_settings
-from pr_agent.log import get_logger
-from pr_agent.tools.pr_add_docs import PRAddDocs
-from pr_agent.tools.pr_code_suggestions import PRCodeSuggestions
-from pr_agent.tools.pr_config import PRConfig
-from pr_agent.tools.pr_description import PRDescription
-from pr_agent.tools.pr_generate_labels import PRGenerateLabels
-from pr_agent.tools.pr_help_message import PRHelpMessage
-from pr_agent.tools.pr_information_from_user import PRInformationFromUser
-from pr_agent.tools.pr_line_questions import PR_LineQuestions
-from pr_agent.tools.pr_questions import PRQuestions
-from pr_agent.tools.pr_reviewer import PRReviewer
-from pr_agent.tools.pr_similar_issue import PRSimilarIssue
-from pr_agent.tools.pr_update_changelog import PRUpdateChangelog
+from ai_pr_agent.algo.utils import update_settings_from_args
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.git_providers.utils import apply_repo_settings
+from ai_pr_agent.log import get_logger
+from ai_pr_agent.tools.pr_add_docs import PRAddDocs
+from ai_pr_agent.tools.pr_code_suggestions import PRCodeSuggestions
+from ai_pr_agent.tools.pr_config import PRConfig
+from ai_pr_agent.tools.pr_description import PRDescription
+from ai_pr_agent.tools.pr_generate_labels import PRGenerateLabels
+from ai_pr_agent.tools.pr_help_message import PRHelpMessage
+from ai_pr_agent.tools.pr_information_from_user import PRInformationFromUser
+from ai_pr_agent.tools.pr_line_questions import PR_LineQuestions
+from ai_pr_agent.tools.pr_questions import PRQuestions
+from ai_pr_agent.tools.pr_reviewer import PRReviewer
+from ai_pr_agent.tools.pr_similar_issue import PRSimilarIssue
+from ai_pr_agent.tools.pr_update_changelog import PRUpdateChangelog
 
 command2class = {
     "auto_review": PRReviewer,

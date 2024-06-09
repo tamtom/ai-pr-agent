@@ -5,17 +5,17 @@ from functools import partial
 from typing import Dict, List
 from jinja2 import Environment, StrictUndefined
 
-from pr_agent.algo.ai_handlers.base_ai_handler import BaseAiHandler
-from pr_agent.algo.ai_handlers.litellm_ai_handler import LiteLLMAIHandler
-from pr_agent.algo.pr_processing import get_pr_diff, get_pr_multi_diffs, retry_with_fallback_models
-from pr_agent.algo.token_handler import TokenHandler
-from pr_agent.algo.utils import load_yaml, replace_code_tags, ModelType, show_relevant_configurations
-from pr_agent.config_loader import get_settings
-from pr_agent.git_providers import get_git_provider
-from pr_agent.git_providers.git_provider import get_main_pr_language
-from pr_agent.log import get_logger
-from pr_agent.servers.help import HelpMessage
-from pr_agent.tools.pr_description import insert_br_after_x_chars
+from ai_pr_agent.algo.ai_handlers.base_ai_handler import BaseAiHandler
+from ai_pr_agent.algo.ai_handlers.litellm_ai_handler import LiteLLMAIHandler
+from ai_pr_agent.algo.pr_processing import get_pr_diff, get_pr_multi_diffs, retry_with_fallback_models
+from ai_pr_agent.algo.token_handler import TokenHandler
+from ai_pr_agent.algo.utils import load_yaml, replace_code_tags, ModelType, show_relevant_configurations
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.git_providers import get_git_provider
+from ai_pr_agent.git_providers.git_provider import get_main_pr_language
+from ai_pr_agent.log import get_logger
+from ai_pr_agent.servers.help import HelpMessage
+from ai_pr_agent.tools.pr_description import insert_br_after_x_chars
 import difflib
 
 class PRCodeSuggestions:
@@ -66,7 +66,7 @@ class PRCodeSuggestions:
                                           get_settings().pr_code_suggestions_prompt.user)
 
         self.progress = f"## Generating PR code suggestions\n\n"
-        self.progress += f"""\nWork in progress ...<br>\n<img src="https://codium.ai/images/pr_agent/dual_ball_loading-crop.gif" width=48>"""
+        self.progress += f"""\nWork in progress ...<br>\n<img src="https://codium.ai/images/ai_pr_agent/dual_ball_loading-crop.gif" width=48>"""
         self.progress_response = None
 
     async def run(self):

@@ -1,6 +1,6 @@
-from pr_agent.config_loader import get_settings
-from pr_agent.git_providers import get_git_provider, GithubProvider
-from pr_agent.log import get_logger
+from ai_pr_agent.config_loader import get_settings
+from ai_pr_agent.git_providers import get_git_provider, GithubProvider
+from ai_pr_agent.log import get_logger
 
 
 class PRHelpMessage:
