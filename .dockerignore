@@ -1,0 +1,5 @@
+venv/
+ai_pr_agent/settings/.secrets.toml
+pics/
+ai_pr_agent.egg-info/
+build/
