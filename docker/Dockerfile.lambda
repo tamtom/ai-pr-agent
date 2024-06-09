@@ -4,9 +4,15 @@ RUN yum update -y && \
     yum install -y gcc python3-devel git && \
     yum clean all
 
-ADD pyproject.toml requirements.txt .
-RUN pip install . && rm pyproject.toml
+WORKDIR /var/task
+
+COPY pyproject.toml requirements.txt ./
+RUN echo "Installing dependencies..." && \
+    pip install . && \
+    echo "Cleaning up pyproject.toml..." && \
+    rm pyproject.toml
 RUN pip install mangum==0.17.0
+
 COPY ai_pr_agent/ ${LAMBDA_TASK_ROOT}/ai_pr_agent/
 
 CMD ["ai_pr_agent.servers.serverless.serverless"]
