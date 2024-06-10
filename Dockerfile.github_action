@@ -2,18 +2,12 @@
 FROM python:3.10 as base
 RUN mkdir -p /app
 WORKDIR /app
-COPY pyproject.toml requirements.txt ./
-RUN echo "Installing dependencies..." && \
-    pip install . && \
-    echo "Cleaning up pyproject.toml and requirements.txt..." && \
-    rm pyproject.toml requirements.txt
+ADD pyproject.toml .
+ADD requirements.txt .
+RUN pip install . && rm pyproject.toml requirements.txt
 ENV PYTHONPATH=/app
-
-# GitHub Action stage
-FROM base
-RUN mkdir -p /app
-WORKDIR /app
-COPY ai_pr_agent ai_pr_agent
-COPY github_action/entrypoint.sh /entrypoint.sh
+ADD ai_pr_agent ai_pr_agent
+ADD github_action/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+RUN echo "entrypoint.sh..."
+ENTRYPOINT ["app/entrypoint.sh"]
