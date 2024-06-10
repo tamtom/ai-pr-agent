@@ -1,6 +1,6 @@
 # Base stage
 FROM python:3.10 as base
-
+RUN mkdir -p /app
 WORKDIR /app
 COPY pyproject.toml requirements.txt ./
 RUN echo "Installing dependencies..." && \
@@ -11,6 +11,7 @@ ENV PYTHONPATH=/app
 
 # GitHub Action stage
 FROM base
+RUN mkdir -p /app
 WORKDIR /app
 COPY ai_pr_agent ai_pr_agent
 COPY github_action/entrypoint.sh /entrypoint.sh
