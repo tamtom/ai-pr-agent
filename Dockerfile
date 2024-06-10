@@ -75,5 +75,5 @@ FROM base as cli
 RUN mkdir -p /app
 WORKDIR /app
 COPY ai_pr_agent ai_pr_agent
-RUN echo "Setting up CLI..."
+RUN echo "Setting up CLI...199"
 ENTRYPOINT ["python", "/app/ai_pr_agent/cli.py"]
