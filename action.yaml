@@ -4,5 +4,26 @@ branding:
   icon: 'award'
   color: 'green'
 runs:
-  using: 'docker'
-  image: 'docker/Dockerfile'
+  using: 'composite'
+  steps:
+    - name: Debug - List files
+      run: ls -R
+      shell: bash
+
+    - name: Debug - Print working directory
+      run: pwd
+      shell: bash
+
+    - name: Debug - Print Docker version
+      run: docker --version
+      shell: bash
+
+    - name: Debug - Display Dockerfile contents
+      run: cat docker/Dockerfile
+      shell: bash
+
+    - name: Build and run Docker image
+      run: |
+        docker build -t review-agent -f docker/Dockerfile .
+        docker run review-agent
+      shell: bash
