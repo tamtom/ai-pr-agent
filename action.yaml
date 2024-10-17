@@ -1,21 +1,8 @@
-name: 'Review Agent'
+name: 'Codium PR Agent'
 description: 'Summarize, review and suggest improvements for pull requests'
 branding:
   icon: 'award'
   color: 'green'
 runs:
-  using: 'composite'
-  steps:
-    - name: Copy Dockerfile and necessary files
-      run: |
-        cp ${{ github.action_path }}/docker/Dockerfile .
-        cp ${{ github.action_path }}/pyproject.toml .
-        cp ${{ github.action_path }}/requirements.txt .
-        cp -r ${{ github.action_path }}/ai_pr_agent .
-      shell: bash
-
-    - name: Build and run Docker image
-      run: |
-        docker build -t review-agent .
-        docker run review-agent
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile.github_action_dockerhub'
