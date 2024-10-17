@@ -6,8 +6,8 @@ branding:
 runs:
   using: 'composite'
   steps:
-    - name: Debug - List files
-      run: ls -R
+    - name: Debug - List current directory
+      run: ls -la
       shell: bash
 
     - name: Debug - Print working directory
@@ -18,12 +18,19 @@ runs:
       run: docker --version
       shell: bash
 
-    - name: Debug - Display Dockerfile contents
-      run: cat docker/Dockerfile
+    - name: Debug - Find Dockerfile
+      run: find . -name Dockerfile
       shell: bash
 
     - name: Build and run Docker image
       run: |
-        docker build -t review-agent -f docker/Dockerfile .
+        if [ -f "Dockerfile" ]; then
+          docker build -t review-agent -f Dockerfile .
+        elif [ -f "docker/Dockerfile" ]; then
+          docker build -t review-agent -f docker/Dockerfile .
+        else
+          echo "Dockerfile not found"
+          exit 1
+        fi
         docker run review-agent
       shell: bash
