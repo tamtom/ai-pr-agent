@@ -6,31 +6,16 @@ branding:
 runs:
   using: 'composite'
   steps:
-    - name: Debug - List current directory
-      run: ls -la
-      shell: bash
-
-    - name: Debug - Print working directory
-      run: pwd
-      shell: bash
-
-    - name: Debug - Print Docker version
-      run: docker --version
-      shell: bash
-
-    - name: Debug - Find Dockerfile
-      run: find . -name Dockerfile
+    - name: Copy Dockerfile and necessary files
+      run: |
+        cp ${{ github.action_path }}/docker/Dockerfile .
+        cp ${{ github.action_path }}/pyproject.toml .
+        cp ${{ github.action_path }}/requirements.txt .
+        cp -r ${{ github.action_path }}/ai_pr_agent .
       shell: bash
 
     - name: Build and run Docker image
       run: |
-        if [ -f "Dockerfile" ]; then
-          docker build -t review-agent -f Dockerfile .
-        elif [ -f "docker/Dockerfile" ]; then
-          docker build -t review-agent -f docker/Dockerfile .
-        else
-          echo "Dockerfile not found"
-          exit 1
-        fi
+        docker build -t review-agent .
         docker run review-agent
       shell: bash
